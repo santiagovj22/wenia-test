@@ -1,0 +1,47 @@
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: wenia-test
+  title: wenia-test
+  description: "repo de prueba desde idp"
+  annotations:
+    github.com/project-slug: santiagovj22/wenia-test
+    backstage.io/source-location: "url:https://github.com/santiagovj22/wenia-test"
+    wenia.io/template-version: "1.0.0"
+    wenia.io/template-ref: "template:default/wenia-service-template"
+    wenia.io/maturity: "full"
+  links:
+    - url: https://github.com/santiagovj22/wenia-test/blob/main/docs/runbook.md
+      title: Runbook
+      icon: docs
+    - url: https://github.com/santiagovj22/wenia-test/blob/main/docs/troubleshooting.md
+      title: Troubleshooting
+      icon: warning
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/platform
+  tags:
+    - nodejs
+    - k8s
+  providesApis:
+    - wenia-test-api
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: wenia-test-api
+  title: "wenia-test API"
+  description: "API for wenia-test"
+  annotations:
+    github.com/project-slug: santiagovj22/wenia-test
+    wenia.io/template-version: "1.0.0"
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: group:default/platform
+  definition:
+    $text: ./openapi.yaml
